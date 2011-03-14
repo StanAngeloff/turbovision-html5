@@ -1,0 +1,99 @@
+@import 'compass';
+
+@include global-reset;
+
+.theme-default {
+  $window_background: #a8a8a8;
+  $window_text: #000;
+  $window_active: #fff;
+  $window_accesskey: #a80000;
+  $button_face: #00a800;
+  $button_accesskey: #fcfc54;
+  $textarea_background: #0000a8;
+
+  background: $window_background image-url('default/background-page.png') repeat;
+
+  &, button,
+  input[type="text"] {
+    font-family: monospace;
+    font-weight: bold;
+    line-height: 1.5em;
+  }
+
+  #primary {
+    nav {
+      @include clearfix;
+      background-color: $window_background;
+      padding-left: 1em;
+
+      li {
+        @include inline-block;
+        float: left;
+      }
+
+      a {
+        @include inline-block;
+        color: $window_text;
+        text-decoration: none;
+        padding: 0 1em;
+
+        span {
+          color: $window_accesskey;
+        }
+
+        &:hover {
+          background-color: $button_face;
+        }
+      }
+    }
+  }
+
+  form.window {
+    @include box-shadow(1em 1em 0 rgba(0, 0, 0, 0.25));
+    background: $window_background;
+    position: relative;
+    padding: 0.25em 0.5em 0.5em;
+    margin: 10%;
+
+    & > fieldset {
+      border: 4px double $window_active;
+      padding: 1em;
+
+      legend {
+        background: $window_background;
+        color: $window_active;
+        text-align: center;
+        padding: 0 1em;
+      }
+    }
+
+    ol, p {
+      margin-bottom: 1em;
+      text-align: center;
+    }
+  }
+
+  label span {
+    color: $button_accesskey;
+  }
+
+  input[type="text"] {
+    background: $textarea_background;
+    border: none;
+    outline: none;
+    padding: 0 0.5em;
+    color: $window_active;
+  }
+
+  button {
+    @include box-shadow(0.75em 0.75em 0 rgba(0, 0, 0, 0.25));
+    background-color: $button_face;
+    border: none;
+    cursor: pointer;
+    padding: 0 2em;
+
+    span {
+      color: $button_accesskey;
+    }
+  }
+}
